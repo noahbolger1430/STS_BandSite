@@ -21,7 +21,7 @@
     <ul>
       <a class="nav-item" href="banner.php">Home </a>
       <a class="nav-item" href="music.php">Music</a>
-      <a class="nav-item" href="blog.php">Blog</a>
+      <a class="nav-item" href="blog_public/blog.php">Blog</a>
       <a class="nav-item facebook pull-right" href="https://www.facebook.com/Smalltownstripclub/">
       	<i class="fa fa-facebook" aria-hidden="true"></i>
       </a>

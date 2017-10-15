@@ -44,14 +44,14 @@
 	  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 	    <div class="navbar-nav">
 	    <ul>
-	      <a class="nav-item" href="banner.php">Home </a>
-	      <a class="nav-item" href="music.php">Music</a>
-	      <a class="nav-item" href="blog.php">Blog</a>
+	      <a class="nav-item" href="../banner.php">Home </a>
+	      <a class="nav-item" href="../music.php">Music</a>
+	      <a class="nav-item" href="../blog_public/blog.php">Blog</a>
 	      <a class="nav-item facebook pull-right" href="https://www.facebook.com/Smalltownstripclub/">
 	      	<i class="fa fa-facebook" aria-hidden="true"></i>
 	      </a>
-	      <a class="nav-item" href="login.php">Login</a>
-	      <a class="nav-item" href="logout.php">Logout</a>
+	      <a class="nav-item" href="../login.php">Login</a>
+	      <a class="nav-item" href="../logout.php">Logout</a>
 	    </ul>
 	    </div>
 	  </div>
