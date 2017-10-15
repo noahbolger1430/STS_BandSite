@@ -44,13 +44,14 @@
 	  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 	    <div class="navbar-nav">
 	    <ul>
-	      <a class="nav-item" href="banner.html">Home </a>
+	      <a class="nav-item" href="banner.php">Home </a>
 	      <a class="nav-item" href="music.php">Music</a>
 	      <a class="nav-item" href="blog.php">Blog</a>
 	      <a class="nav-item facebook pull-right" href="https://www.facebook.com/Smalltownstripclub/">
 	      	<i class="fa fa-facebook" aria-hidden="true"></i>
 	      </a>
 	      <a class="nav-item" href="login.php">Login</a>
+	      <a class="nav-item" href="logout.php">Logout</a>
 	    </ul>
 	    </div>
 	  </div>
@@ -68,11 +69,15 @@
 			<h1 class="title">Blog</h1>
 		</div>
 
-		<form>
+		<form method="post" enctype="multipart/form-data">
 		  Title:<br>
 		  <input type="text" name="title" class="form-control input-sm"><br>
 		  Body:<br>
-		  <input type="textarea" name="body" class="form-control input-lg"><br><br>
+		  <textarea name="body" rows="8" cols="60"></textarea>
+		  <br>
+		  <input type="file" name="fileToUpload" id="fileToUpload">
+		  <br><br>
+
 		  <input type="submit" value="Submit">
 		</form>
 

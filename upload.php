@@ -1,5 +1,5 @@
 <?php
-    include 'banner.html';
+    include 'banner.php';
 ?>
 <!DOCTYPE html>
 <html>

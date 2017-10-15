@@ -19,7 +19,7 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
     <ul>
-      <a class="nav-item" href="banner.html">Home </a>
+      <a class="nav-item" href="banner.php">Home </a>
       <a class="nav-item" href="music.php">Music</a>
       <a class="nav-item" href="blog.php">Blog</a>
       <a class="nav-item facebook pull-right" href="https://www.facebook.com/Smalltownstripclub/">
