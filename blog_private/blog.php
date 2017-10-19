@@ -1,3 +1,8 @@
+<?php
+	session_start();
+	include "../config.php";
+?>
+
 <html>
 	<head>
 		<title>Blog</title>
@@ -56,7 +61,16 @@
 	    </div>
 	  </div>
 	</nav>
-	<body>
+<?php
+	if(isset($_POST['submit'])){
+		$date = date("Y-m-d");
+		$query = "INSERT INTO blog_posts (author,date,post) VALUES ('$_SESSION['login_user']','$date','$_POST['body']'')";
+		mysqli_query($blog_posts, $query);
+		mysqli_close($blog_posts);
+	}
+
+?>
+<body>
 	<div id="fb-root"></div>
 	<script>(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
@@ -78,10 +92,10 @@
 		  <input type="file" name="fileToUpload" id="fileToUpload">
 		  <br><br>
 
-		  <input type="submit" value="Submit">
+		  <input type="submit" value="Submit" name="submit">
 		</form>
 
 		<div class="fb-page" data-href="https://www.facebook.com/Smalltownstripclub/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Smalltownstripclub/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Smalltownstripclub/">Small-Town Strip Club</a></blockquote></div>
 
-	</body>
+</body>
 </html>

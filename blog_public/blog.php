@@ -51,13 +51,12 @@
 	<div class="main-title">
 		<h1 class='title'>Small-Town Strip Club</h1>
 	</div>
-<hr/>
+	<hr/>
 
-<div class="members">
-<p>Johann Yundt - Lead Vocals/Rythm Guitar &nbsp; &nbsp; / &nbsp; &nbsp; Jack Bryan - Lead Guitar &nbsp; &nbsp; / &nbsp; &nbsp; Jim Flood - Drums &nbsp; &nbsp; / &nbsp; &nbsp; Noah Bolger - Bass</p>
-
+	<div class="members">
+	<p>Johann Yundt - Lead Vocals/Rythm Guitar &nbsp; &nbsp; / &nbsp; &nbsp; Jack Bryan - Lead Guitar &nbsp; &nbsp; / &nbsp; &nbsp; Jim Flood - Drums &nbsp; &nbsp; / &nbsp; &nbsp; Noah Bolger - Bass</p>
+	</div>
 </div>
-
 <div class="blog">
 	<div class="blog-title">
 		<h1> Blog </h1>
