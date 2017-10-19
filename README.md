@@ -22,3 +22,7 @@ This page will also link to other local band's websites and social media pages o
 ### Blog
 
 The blog page will feature a blog entry form for band members, and a blog feed on the main site. This will be able to display attachments, audio, video, and text posts made by members. 
+
+### Announcements
+
+The announcements page is used as a temporary blog to announce upcoming shows and events. This page is static and will have to be updated through the HTML.
