@@ -1,7 +1,7 @@
 <?php
 	session_start();
+	include "../config.php";
 ?>
-
 <style>
 .blog{
 	background: #CDBD9B;
@@ -10,6 +10,24 @@
 	padding-top: 10;
 	color: white;
 	font-family: 'Homemade Apple', cursive;
+	text-align: center;
+}
+.posts {
+	background-color: gray;
+	width: 50%;
+	height: 1000px;
+	overflow-y: scroll;
+	margin: 0 auto;
+}
+.single_post {
+	width: 90%;
+	margin: 0 auto;
+	background-color: white;
+	height: 100px;
+	margin-top: 10px;
+}
+.blog_title {
+	margin: 0 auto;
 	text-align: center;
 }
 </style>
@@ -62,6 +80,24 @@
 		<h1> Blog </h1>
 	</div>
 	<hr>
+	<div class="posts">
+		<div class="single_post">
+		<?php
+			$query = "SELECT * FROM post";
+			$blog_query = mysqli_query($blog_posts, $query);
+			$post = mysqli_fetch_array($blog_query);
+			$date = $post['date_posted'];
+			$title = $post['title'];
+			$blog_post = $post['post'];
+			$author = $post['author'];
+
+
+			echo "<div class='blog_title'><h3>" . $title . "</h3></div>";
+			echo "<div class='blog_post'><p>" . $blog_post . "</p></div>";
+			mysqli_close($blog_posts);
+		?>
+		</div>
+	</div>
 </div>
 
 <?php

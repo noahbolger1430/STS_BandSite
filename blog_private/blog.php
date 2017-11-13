@@ -64,7 +64,10 @@
 <?php
 	if(isset($_POST['submit'])){
 		$date = date("Y-m-d");
-		$query = "INSERT INTO blog_posts (author,date,post) VALUES ('$_SESSION['login_user']','$date','$_POST['body']'')";
+		$user = $_SESSION['login_user'];
+		$title = $_POST['title'];
+		$body = $_POST['body'];
+		$query = "INSERT INTO post (author,date_posted,post,title) VALUES ('$user', '$date', '$body','$title')";
 		mysqli_query($blog_posts, $query);
 		mysqli_close($blog_posts);
 	}
