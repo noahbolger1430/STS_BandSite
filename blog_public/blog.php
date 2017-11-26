@@ -30,6 +30,14 @@
 	margin: 0 auto;
 	text-align: center;
 }
+.blog_post {
+	margin: 0 auto;
+	text-align: center;
+}
+.blog_date {
+	margin: 0 auto;
+	text-align: center;
+}
 </style>
 
 <head>
@@ -93,6 +101,7 @@
 
 
 			echo "<div class='blog_title'><h3>" . $title . "</h3></div>";
+			echo "<div class='blog_date'><p>Posted: " . $date . "<p></div>";
 			echo "<div class='blog_post'><p>" . $blog_post . "</p></div>";
 			mysqli_close($blog_posts);
 		?>
