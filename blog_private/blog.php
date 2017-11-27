@@ -61,19 +61,7 @@
 	    </div>
 	  </div>
 	</nav>
-<?php
-	if(isset($_POST['submit'])){
-		$date = date("Y-m-d");
-		$user = $_SESSION['login_user'];
-		$title = $_POST['title'];
-		$body = $_POST['body'];
 
-		$query = "INSERT INTO post (author,date_posted,post,title) VALUES ('$user', '$date', '$body','$title')";
-		mysqli_query($blog_posts, $query);
-		mysqli_close($blog_posts);
-	}
-    
-?>
 <?php
    if(isset($_FILES['image'])){
       $errors= array();
@@ -95,11 +83,23 @@
       
       if(empty($errors)==true) {
          move_uploaded_file($file_tmp,"../images/".$file_name);
+         $img_path = "images/" . $file_name;
          echo "Success";
       }else{
          print_r($errors);
       }
    }
+   	if(isset($_POST['submit'])){
+		$date = date("Y-m-d");
+		$user = $_SESSION['login_user'];
+		$title = $_POST['title'];
+		$body = $_POST['body'];
+
+		$query = "INSERT INTO post (author,date_posted,post,file_path,title) VALUES ('$user', '$date', '$body','$img_path', '$title')";
+		mysqli_query($blog_posts, $query);
+		mysqli_close($blog_posts);
+	}
+    
 ?>
 <body>
 	<div id="fb-root"></div>
