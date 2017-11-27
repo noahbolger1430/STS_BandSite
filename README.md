@@ -26,3 +26,7 @@ The blog page will feature a blog entry form for band members, and a blog feed o
 ### Announcements
 
 The announcements page is used as a temporary blog to announce upcoming shows and events. This page is static and will have to be updated through the HTML.
+
+### Practice Metrics
+
+This page will hopefully make use of tablature and lyric API's to curate custom practice pages for each band member. This page will track progress by displaying avg practice time per session and other possibly useful metrics. 
