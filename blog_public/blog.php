@@ -23,7 +23,7 @@
 	width: 90%;
 	margin: 0 auto;
 	background-color: white;
-	height: 100px;
+	height: 250px;
 	margin-top: 10px;
 }
 .blog_title {
@@ -37,6 +37,15 @@
 .blog_date {
 	margin: 0 auto;
 	text-align: center;
+}
+#blog_image {
+	height: 50%;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	background: transparent no-repeat center;
+  	background-size: cover;
 }
 </style>
 
@@ -89,20 +98,27 @@
 	</div>
 	<hr>
 	<div class="posts">
-		<div class="single_post">
 		<?php
 			$query = "SELECT * FROM post";
 			$blog_query = mysqli_query($blog_posts, $query);
-			$post = mysqli_fetch_array($blog_query);
-			$date = $post['date_posted'];
-			$title = $post['title'];
-			$blog_post = $post['post'];
-			$author = $post['author'];
+			$posts = mysqli_fetch_all($blog_query, MYSQLI_ASSOC);
+
+				foreach ($posts as $post) {
+				$date = $post['date_posted'];
+				$title = $post['title'];
+				$blog_post = $post['post'];
+				$author = $post['author'];
+				$image = $post['file_path'];
+
+				echo "<div class='single_post'>";
+				echo "<div class='blog_title'><h3>" . $title . "</h3></div>";
+				echo "<div class='blog_date'><p>Posted: " . $date . "<p></div>";
+				echo "<div class='blog_post'><p>" . $blog_post . "</p></div>";
+				echo "<img src='../$image' id='blog_image'></img>
+					</div>";	
+			}
 
 
-			echo "<div class='blog_title'><h3>" . $title . "</h3></div>";
-			echo "<div class='blog_date'><p>Posted: " . $date . "<p></div>";
-			echo "<div class='blog_post'><p>" . $blog_post . "</p></div>";
 			mysqli_close($blog_posts);
 		?>
 		</div>
