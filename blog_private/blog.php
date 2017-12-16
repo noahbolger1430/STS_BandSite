@@ -14,6 +14,8 @@
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
 	<link href="https://fonts.googleapis.com/css?family=Homemade+Apple" rel="stylesheet">
 
 	<script src="https://use.fontawesome.com/d6a0ba4244.js"></script>
@@ -43,6 +45,32 @@
 			padding-left: 10%;
 			padding-right: 10%;
 		}
+  .single_post {
+    width: 90%;
+    margin: 0 auto;
+    background-color: white;
+    margin-top: 10px;
+  }
+  .blog_title {
+    margin: 0 auto;
+    text-align: center;
+  }
+  .blog_post {
+    margin: 0 auto;
+    text-align: center;
+  }
+  .blog_date {
+    margin: 0 auto;
+    text-align: center;
+  }
+  #blog_image {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background: transparent no-repeat center;
+      background-size: cover;
+  }
 	</style>			
 
 	<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
@@ -90,10 +118,10 @@
       }
    }
    	if(isset($_POST['submit'])){
-		$date = date("Y-m-d");
+		$date = date("Y-m-d h:i:s");
 		$user = $_SESSION['login_user'];
-		$title = $_POST['title'];
-		$body = $_POST['body'];
+		$title = str_replace("'", "\'", $_POST['title']);
+		$body = str_replace("'", "\'", $_POST['body']);
 
 		$query = "INSERT INTO post (author,date_posted,post,file_path,title) VALUES ('$user', '$date', '$body','$img_path', '$title')";
 		mysqli_query($blog_posts, $query);
@@ -102,30 +130,49 @@
     
 ?>
 <body>
-	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10";
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
+
 		<div class="blog">
 			<h1 class="title">Blog</h1>
 		</div>
-
-		<form method="POST" enctype="multipart/form-data">
+  <div ng-app="">
+		<form method="POST" enctype="multipart/form-data" action="">
 		  Title:<br>
-		  <input type="text" name="title" class="form-control input-sm"><br>
+		  <input type="text" name="title" class="form-control input-sm" ng-model="title"><br>
 		  Body:<br>
-		  <textarea name="body" rows="8" cols="60"></textarea>
+		  <textarea name="body" rows="8" cols="60" ng-model="body"></textarea>
 		  <br>
-		  <input type="file" name = "image"/>
+		  <input id="image_input" type="file" name = "image"/>
 		  <br><br>
 		  <input type="submit" value="Submit" name="submit">
 		</form>
-		<br>
-		<div class="fb-page" data-href="https://www.facebook.com/Smalltownstripclub/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Smalltownstripclub/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Smalltownstripclub/">Small-Town Strip Club</a></blockquote></div>
+
+    <h1 class="title">Preview</h1>
+
+       <div class='single_post'>
+         <div class='blog_title'><h3>{{title}}</h3></div>
+         <div class='blog_post'><p>{{body}}</p></div>
+         <img src='#' id='blog_image'></img>
+      </div> 
+  </div> 
 
 </body>
 </html>
+
+<script>
+function readURL(input) {
+
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      $('#blog_image').attr('src', e.target.result);
+    }
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$("#image_input").change(function() {
+  readURL(this);
+});
+</script>

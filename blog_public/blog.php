@@ -23,7 +23,6 @@
 	width: 90%;
 	margin: 0 auto;
 	background-color: white;
-	height: 250px;
 	margin-top: 10px;
 }
 .blog_title {
@@ -39,7 +38,6 @@
 	text-align: center;
 }
 #blog_image {
-	height: 50%;
 	width: 90%;
 	margin-left: auto;
 	margin-right: auto;
@@ -111,6 +109,7 @@
 				$image = $post['file_path'];
 
 				echo "<div class='single_post'>";
+				echo "<p>" . $author . " posted: </p>";
 				echo "<div class='blog_title'><h3>" . $title . "</h3></div>";
 				echo "<div class='blog_date'><p>Posted: " . $date . "<p></div>";
 				echo "<div class='blog_post'><p>" . $blog_post . "</p></div>";
